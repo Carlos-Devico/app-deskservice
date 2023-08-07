@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -35,4 +34,4 @@ build/
 =======
 *.agdai
 MAlonzo/**
->>>>>>> e61c01d3b3e05d3ee25c401ef2c0c4293a1280bf
+
