@@ -1,8 +1,10 @@
 package com.vdm.deskservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vdm.deskservice.domain.enums.Perfil;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity(name = "TECNICO")
 public class Tecnico extends Pessoa{
     private static final long serialVersionUID = 1L;
+    @JsonIgnore
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tecnico")
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
