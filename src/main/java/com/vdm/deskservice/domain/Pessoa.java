@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Entity(name = "TB_PESSOA")
+@Entity(name = "PESSOAS")
 public abstract class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
 

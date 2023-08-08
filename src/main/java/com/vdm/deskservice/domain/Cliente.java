@@ -7,7 +7,7 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "CLIENTE")
 public class Cliente extends Pessoa {
 
     private static final long serialVersionUID = 1L;

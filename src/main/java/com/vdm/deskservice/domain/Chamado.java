@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "CHAMADOS")
 public class Chamado  implements Serializable {
     private static final long serialVersionUID = 1L;
 
