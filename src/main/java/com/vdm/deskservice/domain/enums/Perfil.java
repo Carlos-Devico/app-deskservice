@@ -1,7 +1,11 @@
 package com.vdm.deskservice.domain.enums;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+
 public enum Perfil {
-    ADMIN(0, "ROLE_ADMIN"), CLIENTE(1, "ROLE_CLIENTE"), TECNICO(2, "ROLE_TECNICO");
+    ADMIN(1, "ROLE_ADMIN"), TECNICO(2, "ROLE_TECNICO"),CLIENTE(3, "ROLE_CLIENTE");
     private final int codigo;
     private final String descricao;
 
