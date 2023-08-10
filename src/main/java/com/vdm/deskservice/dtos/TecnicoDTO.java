@@ -6,7 +6,6 @@ import com.vdm.deskservice.domain.enums.Perfil;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
