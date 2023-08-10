@@ -9,7 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,15 +34,15 @@ public class TecnicoController {
     }
 
 //    CADASTRAR
-    @PostMapping("/cadastrar/")
-        public ResponseEntity<?> criar(@RequestBody TecnicoDTO dto){
+    @PostMapping
+        public ResponseEntity<TecnicoDTO> criar(@RequestBody TecnicoDTO dto) {
         if (StringUtils.isEmpty(dto.getNome()))
             return new ResponseEntity(new Mensagem("O nome é obrigatório"), HttpStatus.BAD_REQUEST);
         if (dto.getSenha().equals(""))
             return new ResponseEntity(new Mensagem("A senha não pode estar em branco"), HttpStatus.BAD_REQUEST);
-        Tecnico tecnico = new Tecnico();
-        service.salvar(tecnico);
-        return new ResponseEntity(new Mensagem("Tecnico criado"), HttpStatus.OK);
+        Tecnico obj = service.criar(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
         }
 
 //        LISTAR TODOS O TECNICOS

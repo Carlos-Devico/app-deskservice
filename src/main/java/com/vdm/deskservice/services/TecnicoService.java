@@ -1,6 +1,7 @@
 package com.vdm.deskservice.services;
 
 import com.vdm.deskservice.domain.Tecnico;
+import com.vdm.deskservice.dtos.TecnicoDTO;
 import com.vdm.deskservice.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,11 @@ public class TecnicoService {
 
     public List<Tecnico> listaTodosTecnicos() {
         return tecnicoRepository.findAll();
+    }
+
+    public Tecnico criar(TecnicoDTO dto) {
+        dto.setId(null);
+        Tecnico newObj = new Tecnico(dto);
+        return tecnicoRepository.save(newObj);
     }
 }
