@@ -28,7 +28,6 @@ public class TecnicoDTO implements Serializable {
     @Min(3)
     protected String senha;
 
-    @Enumerated(EnumType.STRING) // SE DER ERRO RETIRAR ESSA LINHA
     protected Set<Integer> perfis = new HashSet<>();
 
     @JsonFormat(pattern = "dd/MM/yyyy")
