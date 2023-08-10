@@ -7,6 +7,8 @@ import com.vdm.deskservice.domain.enums.Perfil;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -17,11 +19,14 @@ public class TecnicoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
+    @NotBlank
     protected String nome;
-
+    @NotBlank
     protected String cpf;
-
+    @NotBlank
     protected String email;
+    @NotBlank
+    @Min(3)
     protected String senha;
 
     @Enumerated(EnumType.STRING) // SE DER ERRO RETIRAR ESSA LINHA
@@ -101,5 +106,5 @@ public class TecnicoDTO implements Serializable {
         this.dataCriacao = dataCriacao;
     }
 }
-
+//0:27
 

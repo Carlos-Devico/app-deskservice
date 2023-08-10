@@ -12,8 +12,17 @@ public class TecnicoService {
     @Autowired
     private TecnicoRepository tecnicoRepository;
 
-    public Tecnico localizaPeloId(Integer id){
+    public Tecnico localizaPeloId(Integer id) {
         Optional<Tecnico> obj = tecnicoRepository.findById(id);
         return obj.orElse(null);
+    }
+
+    public boolean existById(int id) {
+        return tecnicoRepository.existsById(id);
+    }
+
+
+    public Optional<Tecnico> getOne(Integer id) {
+        return  tecnicoRepository.findById(id);
     }
 }
