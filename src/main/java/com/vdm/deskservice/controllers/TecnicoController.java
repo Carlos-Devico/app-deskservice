@@ -1,6 +1,7 @@
 package com.vdm.deskservice.controllers;
 
 import com.vdm.deskservice.domain.Tecnico;
+import com.vdm.deskservice.dtos.TecnicoDTO;
 import com.vdm.deskservice.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,9 @@ public class TecnicoController {
     @Autowired
     private TecnicoService service;
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id){
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id){
         Tecnico obj = service.localizaPeloId(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(new TecnicoDTO(obj));
 
     }
 }
